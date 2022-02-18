@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Result of {{ question.pk }}</title>
+</head>
+<body>
+        <table border="2">
+            <tr>
+                <th>Choice</th>
+                <th>No of votes</th>
+            </tr>
+            {% for choice in choice_list %}
+                    <tr>
+                        <td>{{ choice.Choices_text }}</td>
+                        <td>{{ choice.No_of_votes }}</td>
+                    </tr>
+            {% endfor %}
+
+        </table>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Home Page</title>
+</head>
+<body>
+	<h1>Question List</h1>
+	<table border="2">
+        <tr>
+            <th>Question Id</th>
+            <th>Question Text</th>
+            <th>Publication Date</th>
+            <th>Details and Results</th>
+        </tr>
+            {% for question in question_list %}
+                    <tr>
+                            <td>{{question.pk}}</td>
+                            <td>{{question.question_text}}</td>
+                            <td>{{question.Publication_Date}}</td>
+                            <td>
+                                    <a href="{% url "Details" question.pk%}">Details</a>
+				                    <a href="{% url "Results" question.pk %}">Results</a>
+                            </td>
+                    </tr>
+            {% endfor %}
+    </table>
+</body>
+</html>

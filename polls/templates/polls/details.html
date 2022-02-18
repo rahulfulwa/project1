@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Details of {{ question.pk }}</title>
+</head>
+<body>
+    <h1>This is question no {{ question.pk }}</h1>
+    <h4>{{ question.question_text }}</h4>
+    <form method="POST" action="{% url "Vote" question.pk %}">
+        {% csrf_token %}
+        {% for choice in choice_list %}
+                <input type="radio" id="choice_{{ choice.pk }}" name="choice" value="{{ choice.pk }}">
+                <label for="choice_{{ choice.pk }}">{{ choice.Choices_text }}</label>
+        {% endfor %}
+        <br>
+        <br>
+{#        now her how can i add a submit button,    ans  => simply by button tag in html with submit attribute #}
+        <button type="submit">Vote</button>
+    </form>
+</body>
+</html>
